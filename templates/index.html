@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Check your Admission Probabilty</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content" >
+    <h2 style="text-align: center">Check your Admission Probabilty</h2>
+
+    <div class="form">
+        <form action="/predict" method="POST">
+            <h3>Enter your GRE Score</h3>
+            <input type="number" name="GRE Score" id="GRE Score" min="260" max="340"  style="width:60px;height:20px">
+            <br>
+            <h3>Enter the University Rating which you are applying (1 for Low - 5 for High)</h3>
+            <input type="number" name="University Rating" id="University Rating" min="1" max="5" style="width:60px;height:20px">
+            <br>
+            <h3>Enter your SOP Rating (1.0-5.0)</h3>
+            <input type="number" name="SOP" id="SOP" min="1" max="5" step=".5" style="width:60px;height:20px">
+            <br>
+            <h3>Enter your LOR Rating (1.0-5.0)</h3>
+            <input type="number" name="LOR" id="LOR" min="1" max="5" step=".5" style="width:60px;height:20px">
+            <br>
+            <h3>Enter your CGPA (1.00-10.00)</h3>
+            <input type="number" name="CGPA" id="CGPA" min="0" max="10" step=".01" style="width:60px;height:20px">
+            <br>
+            <h3>If you have published any research paper   (0 for NO / 1 for YES)</h3>
+            <input type="number" name="Research" id="Research" min="0" max="1" style="width:60px;height:20px">
+            <br>
+            <br>
+            <div style="text-align:center">
+            <input type="submit" value="Search" align="center">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
